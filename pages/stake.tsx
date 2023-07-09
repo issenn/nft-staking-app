@@ -4,6 +4,9 @@ import {
   useAddress,
   useContract,
   useContractRead,
+  useMetadata,
+  useContractMetadataUpdate,
+  useUpdateMetadata,
   useOwnedNFTs,
   useTokenBalance,
   Web3Button,
@@ -24,15 +27,19 @@ const Stake: NextPage = () => {
   const { contract: nftDropContract } = useContract(
     nftDropContractAddress,
     "nft-drop"
+    // "custom"
   );
   const { contract: tokenContract } = useContract(
     tokenContractAddress,
     "token"
   );
   const { contract, isLoading } = useContract(stakingContractAddress);
+  // console.log("nftDropContract", contract);
   const { data: ownedNfts } = useOwnedNFTs(nftDropContract, address);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
+  // console.log("address", address);
+  // console.log("contract", contract);
   const { data: stakedTokens } = useContractRead(contract, "getStakeInfo", [
     address,
   ]);
