@@ -145,7 +145,7 @@
 .nftBox {
   border-radius: 16px;
   border: 1px solid #ccc;
-  width: 19%;
+  width: 100%;
   min-height: 200px;
   padding: 16px;
 }
