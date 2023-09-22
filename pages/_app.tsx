@@ -14,24 +14,29 @@ import {
   ThirdwebStorage,
   StorageDownloader,
   IpfsUploader,
+  DEFAULT_GATEWAY_URLS
 } from "@thirdweb-dev/storage";
+import type { GatewayUrls } from "@thirdweb-dev/storage";
+import { TWApiKey, activeChain } from "../consts/constants";
 import "../styles/globals.css";
 
 // Configure a custom ThirdwebStorage instance
-const gatewayUrls = {
+const gatewayUrls: GatewayUrls = {
+  ...DEFAULT_GATEWAY_URLS,
   "ipfs://": [
+    "https://nft-staking-app.myfilebase.com/ipfs/{cid}/{path}",
     // CID v1
-    "https://{cid}.ipfs.thirdwebstorage.com/{path}",
-    "https://{cid}.ipfs.thirdwebipfs.com/{path}",
-    "https://{cid}.ipfs.thirdwebgateway.com/{path}",
-    "https://{cid}.ipfs-public.thirdwebcdn.com/{path}",
+    // "https://{cid}.ipfs.thirdwebstorage.com/{path}",
+    // "https://{cid}.ipfs.thirdwebipfs.com/{path}",
+    // "https://{cid}.ipfs.thirdwebgateway.com/{path}",
+    // "https://{cid}.ipfs-public.thirdwebcdn.com/{path}",
 
-    "https://cf-ipfs.com/ipfs/{cid}/{path}",
-    "https://cloudflare-ipfs.com/ipfs/{cid}/{path}",  // GFW
-    "https://ipfs.cf-ipfs.com/ipfs/{cid}/{path}",  // GFW
-    "https://gateway.ipfscdn.io/ipfs/{cid}/{path}",  // GFW
-    "https://gateway.ipfs.io/ipfs/{cid}/{path}",
-    "https://ipfs.io/ipfs/{cid}/{path}",  // GFW
+    // "https://cf-ipfs.com/ipfs/{cid}/{path}",
+    // "https://cloudflare-ipfs.com/ipfs/{cid}/{path}",  // GFW
+    // "https://ipfs.cf-ipfs.com/ipfs/{cid}/{path}",  // GFW
+    // "https://gateway.ipfscdn.io/ipfs/{cid}/{path}",  // GFW
+    // "https://gateway.ipfs.io/ipfs/{cid}/{path}",
+    // "https://ipfs.io/ipfs/{cid}/{path}",  // GFW
 
     // CID v0
     // "https://dweb.link/ipfs/",
@@ -53,42 +58,14 @@ const gatewayUrls = {
     // "https://konubinix.eu/ipfs/",
     // "https://ipfs.scalaproject.io/ipfs/",
     // "https://via0.com/ipfs/",
+  
+    ...DEFAULT_GATEWAY_URLS["ipfs://"]
   ],
 };
-const downloader = new StorageDownloader();
+const downloader = new StorageDownloader({});
 const uploader = new IpfsUploader();
 const storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });
-
-// This is the chain your dApp will work on.
-// Change this to the chain your app is built for.
-// You can also import additional chains from `@thirdweb-dev/chains` and pass them directly.
-const activeChain = {
-  // ...Mumbai,
-  // rpc: [
-  //   // Mumbai
-  //   // "https://mumbai.rpc.thirdweb.com/${THIRDWEB_API_KEY}",
-  //   "https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-  //   "https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}",
-  //   "https://matic-mumbai.chainstacklabs.com",
-  //   "https://rpc-mumbai.maticvigil.com",
-  //   // "https://matic-testnet-archive-rpc.bwarelabs.com",
-  //   "https://polygon-mumbai-bor.publicnode.com"
-  // ]
-  ...Polygon,
-  // rpc: [
-  //   // Polygon
-  //   // "https://polygon.rpc.thirdweb.com/${THIRDWEB_API_KEY}",
-  //   "https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}",
-  //   "https://polygon-mainnet.infura.io/v3/${INFURA_API_KEY}",
-  //   // "https://polygon-rpc.com/",
-  //   // "https://rpc-mainnet.matic.network",
-  //   "https://matic-mainnet.chainstacklabs.com",
-  //   "https://rpc-mainnet.maticvigil.com",
-  //   "https://rpc-mainnet.matic.quiknode.pro",
-  //   // "https://matic-mainnet-full-rpc.bwarelabs.com",
-  //   "https://polygon-bor.publicnode.com",
-  // ]
-};
+// const storage = new ThirdwebStorage({ uploader, downloader });
 
 // const metamaskConfig = metamaskWallet();
 // console.log("metamaskConfig", metamaskConfig.meta);
@@ -105,6 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       // ]}
       // Provide the custom storage instance to the SDK
       storageInterface={storage}
+      clientId={TWApiKey}
       autoConnect={false}
     >
       <Component {...pageProps} />

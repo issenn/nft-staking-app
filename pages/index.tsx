@@ -71,6 +71,8 @@ const Home: NextPage = () => {
             role="button"
             onClick={() => router.push(`/stake`)}
           >
+            {/* <a href="/stake"> */}
+            {/* <link href="/stake" > */}
             {/* Staking an NFT */}
             <Image src="/icons/token.webp" alt="token" width={64} height={64} />
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
@@ -78,6 +80,8 @@ const Home: NextPage = () => {
               Use the custom staking contract deployed via <b>thirdweb Deploy</b>{" "}
               to stake your NFTs, and earn tokens from the <b>Token</b> contract.
             </p>
+            {/* </link> */}
+            {/* </a> */}
           </div>
         </div>
       </main>

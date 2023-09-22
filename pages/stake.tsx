@@ -19,7 +19,7 @@ import {
   nftDropContractAddress,
   stakingContractAddress,
   tokenContractAddress,
-} from "../consts/contractAddresses";
+} from "../consts/constants";
 import styles from "../styles/Home.module.css";
 
 const Stake: NextPage = () => {
@@ -78,7 +78,9 @@ const Stake: NextPage = () => {
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
-        <ConnectWallet />
+        <ConnectWallet 
+          btnTitle="Connect Wallet"
+        />
       ) : (
         <>
           <h2>Your Tokens</h2>

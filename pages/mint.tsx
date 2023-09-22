@@ -1,7 +1,7 @@
 import { Web3Button } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { nftDropContractAddress } from "../consts/contractAddresses";
+import { nftDropContractAddress } from "../consts/constants";
 import styles from "../styles/Home.module.css";
 
 const Mint: NextPage = () => {

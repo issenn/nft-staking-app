@@ -8,7 +8,7 @@ import type { FC } from "react";
 import {
   nftDropContractAddress,
   stakingContractAddress,
-} from "../consts/contractAddresses";
+} from "../consts/constants";
 import styles from "../styles/Home.module.css";
 
 interface NFTCardProps {
