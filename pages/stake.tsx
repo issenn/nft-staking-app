@@ -80,6 +80,7 @@ const Stake: NextPage = () => {
       {!address ? (
         <ConnectWallet 
           btnTitle="Connect Wallet"
+          modalTitle="Connect"
         />
       ) : (
         <>
