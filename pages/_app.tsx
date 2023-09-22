@@ -2,9 +2,9 @@ import type { AppProps } from "next/app";
 import {
   ThirdwebProvider,
   // ThirdwebSDKProvider,
-  // metamaskWallet,
+  metamaskWallet,
   // coinbaseWallet,
-  // walletConnect
+  walletConnect
 } from "@thirdweb-dev/react";
 import { 
   Polygon,
@@ -75,11 +75,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThirdwebProvider
       activeChain={activeChain}
       supportedChains={[activeChain]}
-      // supportedWallets={[
-      //   metamaskWallet(),
-      //   // coinbaseWallet(),
-      //   // walletConnect()
-      // ]}
+      supportedWallets={[
+        metamaskWallet(),
+        // coinbaseWallet(),
+        walletConnect()
+      ]}
       // Provide the custom storage instance to the SDK
       storageInterface={storage}
       clientId={TWApiKey}
