@@ -31,6 +31,7 @@ const NFTCard: FC<NFTCardProps> = ({ tokenId }) => {
             // />
             <MediaRenderer
               src={nft.metadata.image}
+              className={styles.nftMedia}
             />
           )}
           <h3>{nft.metadata.name}</h3>
