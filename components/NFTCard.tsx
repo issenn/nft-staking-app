@@ -1,5 +1,6 @@
 import {
   ThirdwebNftMedia,
+  MediaRenderer,
   useContract,
   useNFT,
   Web3Button,
@@ -24,9 +25,12 @@ const NFTCard: FC<NFTCardProps> = ({ tokenId }) => {
       {nft && (
         <div className={styles.nftBox}>
           {nft.metadata && (
-            <ThirdwebNftMedia
-              metadata={nft.metadata}
-              className={styles.nftMedia}
+            // <ThirdwebNftMedia
+            //   metadata={nft.metadata}
+            //   className={styles.nftMedia}
+            // />
+            <MediaRenderer
+              src={nft.metadata.image}
             />
           )}
           <h3>{nft.metadata.name}</h3>

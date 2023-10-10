@@ -18,12 +18,19 @@ import {
 // export const stakingContractAddress =
 //   "0xf98f4857E4989EB77BcCFF6164F4738d0648d896";
 
+// export const nftDropContractAddress =
+//   "0x4e11aa3c81445a41a61eA74a7600ABc0e7f75633";
+// export const tokenContractAddress =
+//   "0xa3f44d590AD0C3627BC69a7f2A772B3583a976e3";
+// export const stakingContractAddress =
+//   "0xA3A3987910527f260376E25b4E4366742237DA60";
+
 export const nftDropContractAddress =
-  "0x4e11aa3c81445a41a61eA74a7600ABc0e7f75633";
+  "0xF1ba49fc081f66ef469C0e2f106B971B5518d97D";
 export const tokenContractAddress =
   "0xa3f44d590AD0C3627BC69a7f2A772B3583a976e3";
 export const stakingContractAddress =
-  "0xA3A3987910527f260376E25b4E4366742237DA60";
+  "0x0c61566cfBAE706c7B3E541B4Da231a94AD1FaD1";
 
 // Your thirdweb api key - you can get one at https://thirdweb.com/dashboard/api-keys
 export const TWApiKey: string = process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID || 'da6bbe81b502ee868fcce5cef60972a5'

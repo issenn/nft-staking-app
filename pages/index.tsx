@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ConnectWallet } from "@thirdweb-dev/react";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -69,19 +70,22 @@ const Home: NextPage = () => {
           <div
             className={styles.optionSelectBox}
             role="button"
-            onClick={() => router.push(`/stake`)}
+            // onClick={() => router.push(`/stake`)}
+            onClick={() => (window.location.href = '/stake')}
           >
-            {/* <a href="/stake"> */}
-            {/* <link href="/stake" > */}
             {/* Staking an NFT */}
+            <Link href="/stake">
             <Image src="/icons/token.webp" alt="token" width={64} height={64} />
+            </Link>
+            <Link href="/stake">
             <h2 className={styles.selectBoxTitle}>Stake Your NFTs</h2>
+            </Link>
+            <Link href="/stake">
             <p className={styles.selectBoxDescription}>
               Use the custom staking contract deployed via <b>thirdweb Deploy</b>{" "}
               to stake your NFTs, and earn tokens from the <b>Token</b> contract.
             </p>
-            {/* </link> */}
-            {/* </a> */}
+            </Link>
           </div>
         </div>
       </main>

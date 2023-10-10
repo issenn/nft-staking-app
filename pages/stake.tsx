@@ -1,6 +1,7 @@
 import {
   ConnectWallet,
   ThirdwebNftMedia,
+  MediaRenderer,
   useAddress,
   useContract,
   useContractRead,
@@ -129,9 +130,12 @@ const Stake: NextPage = () => {
           <div className={styles.nftBoxGrid}>
             {ownedNfts?.map((nft) => (
               <div className={styles.nftBox} key={nft.metadata.id.toString()}>
-                <ThirdwebNftMedia
+                {/* <ThirdwebNftMedia
                   metadata={nft.metadata}
                   className={styles.nftMedia}
+                /> */}
+                <MediaRenderer
+                  src={nft.metadata.image}
                 />
                 <h3>{nft.metadata.name}</h3>
                 <Web3Button
